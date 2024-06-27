@@ -9,7 +9,7 @@ Follow these steps to run the project on your local machine.
 ### Prerequisites
 
 - JDK 17
-- PostgreSQL
+- Docker
 - Gradle
 
 ### Installation
@@ -20,23 +20,28 @@ Follow these steps to run the project on your local machine.
     cd simplebanking
     ```
 
-2. Configure the Database:
-    - Install and run PostgreSQL.
-    - Update `application.yml` with your database connection settings.
+2. Configure the Database using Docker Compose:
+   - Ensure Docker is installed and running on your machine.
+   - Use the provided `docker-compose.yml` file to start the PostgreSQL database:
+     ```bash
+     docker-compose up -d
+     ```
 
-3. Run the Application:
+3. Update `application.yml` if necessary to match the database settings in `docker-compose.yml`.
+
+4. Run the Application:
     ```bash
     ./gradlew bootRun
     ```
 
-   The application runs by default at http://localhost:8080.
+   The application runs by default at [http://localhost:8080](http://localhost:8080).
 
 ## Usage
 
 The project provides the following features:
 
 - RESTful APIs
-- Swagger API Documentation: Accessible at http://localhost:8080/swagger-ui/index.html
+- Swagger API Documentation: Accessible at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 - Postman Collection: Use `SimpleBanking.postman_collection.json` to test the APIs.
 
 ## Testing
@@ -45,4 +50,3 @@ The project is tested using JUnit. Run the tests with the following command:
 
 ```bash
 ./gradlew test
-```
